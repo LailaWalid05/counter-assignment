@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+import 'counter_main_screen.dart';
+
+class ValueSetupScreen extends StatelessWidget {
+  const ValueSetupScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _greyLabel("Enter counter value"),
+            const SizedBox(height: 20),
+            _inputBox("Enter value here"),
+            const Padding(
+              padding: EdgeInsets.only(top: 15),
+              child: Text("NOTE: if you skip\nit means the value will be at 0", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
+            ),
+            const SizedBox(height: 100),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _blackBtn("SKIP", () => Navigator.push(context, MaterialPageRoute(builder: (context) => const CounterMainScreen()))),
+                const SizedBox(width: 20),
+                _blackBtn("NEXT", () => Navigator.push(context, MaterialPageRoute(builder: (context) => const CounterMainScreen()))),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
